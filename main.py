@@ -23,9 +23,9 @@ class DesignerMainWindow(QtWidgets.QMainWindow, Ui_MplMainWindow):
         self.setupUi(self)
         # connect the signals with the slots
         # QtCore.QObject.connect(self.mplpushButton, QtCore.QObject.SIGNAL("clicked()"), self.update_graph)
-        self.mplpushButton.clicked.connect(self.update_graph)
-        # QtCore.QObject.connect(self.mplactionOpen, QtCore.QObject.SIGNAL('triggered()'), self.select_file)
-        self.actionOpen.triggered.connect(self.select_file)
+        self.pushButton.clicked.connect(self.update_graph)
+        # # QtCore.QObject.connect(self.mplactionOpen, QtCore.QObject.SIGNAL('triggered()'), self.select_file)
+        # self.actionOpen.triggered.connect(self.select_file)
         # QtCore.QObject.connect(self.mplactionQuit, QtCore.QObject.SIGNAL('triggered()'), QtWidgets.qApp, QtCore.QObject.SLOT("quit()"))
 
     def select_file(self):
@@ -60,21 +60,24 @@ class DesignerMainWindow(QtWidgets.QMainWindow, Ui_MplMainWindow):
     def update_graph(self):
         """Updates the graph with new letters frequencies"""
         # get the letters frequencies
-        l, v = self.parse_file(self.mpllineEdit.text())
         # clear the Axes
         self.mpl.canvas.ax.clear()
         # draw a bar chart for letters and their frequencies
         # set width to 0.5 and shift bars of 0.25, to be centered
-        self.mpl.canvas.ax.bar(np.arange(len(l)) - 0.25, v, width=0.5)
+        #self.mpl.canvas.ax.bar(np.arange(len(l)) - 0.25, v, width=0.5)
+        self.mpl.canvas.ax.plot([1, 2, 3, 4, 5], [1, 2, 3, 4, 5])
         # reset the X limits
-        self.mpl.canvas.ax.set_xlim(xmin=-0.25, xmax=len(l) - 0.75)
+        # self.mpl.canvas.ax.set_xlim(xmin=-0.25, xmax=len(l) - 0.75)
         # set the X ticks & tickslabel as the letters
-        self.mpl.canvas.ax.set_xticks(range(len(l)))
-        self.mpl.canvas.ax.set_xticklabels(l)
+        # self.mpl.canvas.ax.set_xticks(range(len(l)))
+        # self.mpl.canvas.ax.set_xticklabels(l)
         # enable grid only on the Y axis
         self.mpl.canvas.ax.get_yaxis().grid(True)
         # force an image redraw
         self.mpl.canvas.draw()
+
+    # def get_points(self):
+
 
 
 # create the GUI application

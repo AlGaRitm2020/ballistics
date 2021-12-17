@@ -5,7 +5,7 @@ from PyQt5 import QtGui, QtWidgets
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 # Matplotlib Figure object
 from matplotlib.figure import Figure
-
+import matplotlib.pyplot as plt
 
 class MplCanvas(FigureCanvas):
     """Class to represent the FigureCanvas widget"""
@@ -14,6 +14,8 @@ class MplCanvas(FigureCanvas):
         # setup Matplotlib Figure and Axis
         self.fig = Figure()
         self.ax = self.fig.add_subplot(111)
+
+        plt.show()
         # initialization of the canvas
         FigureCanvas.__init__(self, self.fig)
         # # we define the widget as expandable
