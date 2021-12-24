@@ -1,5 +1,4 @@
 
-
 import sys
 
 import PyQt5.QtCore as QtCore
@@ -16,41 +15,61 @@ class DesignerMainWindow(QtWidgets.QMainWindow, Ui_MplMainWindow):
         super(DesignerMainWindow, self).__init__(parent)
         self.setupUi(self)
         self.pushButton.clicked.connect(self.check)
-        
+        self.pushButton_4.clicked.connect(self.check)
+        self.score_h = 0
+        self.score_s = 0
 
-        self.score = 0
-        self.obj = [(self.lineEdit.value(), self.label.value()),
-                    (self.lineEdit1.value(), self.label1.value()),
-                    (self.lineEdit2.value(), self.label2.value()),
-                    (self.lineEdit3.value(), self.label3.value()),
-                    (self.lineEdit4.value(), self.label4.value()),
-                    (self.lineEdit5.value(), self.label5.value()),
-                    (self.lineEdit6.value(), self.label6.value()),
-                    (self.lineEdit7.value(), self.label7.value()),
-                    (self.lineEdit8.value(), self.label8.value()),
-                    (self.lineEdit9.value(), self.label9.value())]
     def check(self):
-        
-        for i, turple in enumerate(self.obj):
-            edit = turple[0]
-            label = turple[1]
-            if i == 4:
-               if label     
-                
-            if edit == label:
-                self.score += 1
-            
-        self.label_res.setText(str(self.score))    
+        self.score_h = 0
+        self.score_s = 0
+        if self.tabWidget.currentIndex() == 0:
+            if self.label_3.text().replace(' ', '').replace('\n', '') == self.textEdit.toPlainText().replace(' ', '').replace \
+                    ('\n', ''):
+                self.score_h += 1
+            if self.label_5.text().replace(' ', '').replace('\n', '') == self.textEdit_2.toPlainText().replace(' ', '').replace \
+                    ('\n', ''):
+                self.score_h += 1
+            if self.label_17.text().replace(' ', '').replace('\n', '') == self.textEdit_7.toPlainText().replace(' ', '').replace \
+                    ('\n', ''):
+                self.score_h += 1
+            if self.textEdit_8.toPlainText().replace(' ', '').replace('\n', '') == '18':
+                self.score_h += 1
+            print()
+            if self.label_21.text().replace(' ', '').replace('\n', '') == self.textEdit_9.toPlainText().replace(' ', '').replace \
+                    ('\n', '').replace('1241', '1279'):
+                self.score_h += 1
+
+            self.label_res_1.setText(str(self.score_h))
+
+
+        elif self.tabWidget.currentIndex() == 1:
+            print('society')
+            print(self.label_25.text().replace(' ', '').replace('\n', '') )
+            print(self.textEdit_11.toPlainText().replace('\n', '').replace(' ', ''))
+            if self.label_23.text().replace(' ', '').replace('\n', '') == self.textEdit_10.toPlainText().replace(' ', '').replace \
+                    ('\n', ''):
+                self.score_s += 1
+            if self.label_25.text().replace(' ', '').replace('\n', '') == self.textEdit_11.toPlainText().replace(' ', '').replace \
+                    ('\n', ''):
+                self.score_s += 1
+            if self.label_27.text().replace(' ', '').replace('\n', '') == self.textEdit_12.toPlainText().replace(' ', '').replace \
+                    ('\n', ''):
+                self.score_s += 1
+            if self.textEdit_13.toPlainText().replace(' ', '').replace('\n', '') == '870':
+                self.score_s += 1
+
+            if self.label_31.text().replace(' ', '').replace('\n', '') == self.textEdit_14.toPlainText().replace(' ', '').replace \
+                    ('\n', '').replace('Либерализм', 'Консерватизм'):
+                self.score_s += 1
+
+            self.label_res_2.setText(str(self.score_s))
 
 
 
 
-# create the GUI application
+
+
 app = QtWidgets.QApplication(sys.argv)
-# instantiate the main window
 dmw = DesignerMainWindow()
-# show it
 dmw.show()
-# start the Qt main loop execution, exiting from this script
-# with the same return code of Qt application
 sys.exit(app.exec_())
