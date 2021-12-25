@@ -1,8 +1,6 @@
 
 import sys
 
-import PyQt5.QtCore as QtCore
-
 from PyQt5 import QtGui, QtWidgets
 
 from designer import Ui_MplMainWindow
@@ -42,20 +40,11 @@ class DesignerMainWindow(QtWidgets.QMainWindow, Ui_MplMainWindow):
             if self.label_3.text().replace(' ', '').replace('\n', '') == self.textEdit.toPlainText().replace(' ', '').replace \
                     ('\n', ''):
                 self.score_h += 1
-            #     self.label_task_res_1.setText('Задание решено верно')
-            # elif self.label_3.text() == '':
-            #     self.label_task_res_1.setText('Задание не решено')
-            # else:
-            #     self.label_task_res_1.setText('Задание решено неверно')
+
 
             if self.label_5.text().replace(' ', '').replace('\n', '') == self.textEdit_2.toPlainText().replace(' ', '').replace \
                     ('\n', ''):
                 self.score_h += 1
-            #     self.label_task_res_2.setText('Задание решено верно')
-            # elif self.label_5.text() == '':
-            #     self.label_task_res_2.setText('Задание не решено')
-            # else:
-            #     self.label_task_res_2.setText('Задание решено неверно')
 
             if self.label_17.text().replace(' ', '').replace('\n', '') == self.textEdit_7.toPlainText().replace(' ', '').replace \
                     ('\n', ''):
